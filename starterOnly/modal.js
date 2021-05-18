@@ -34,8 +34,9 @@ function closePopUp() {
 
 const formData = document.querySelectorAll(".formData");
 
+
 const firstName = document.getElementById("first");
-const familyName = document.getElementById("last");
+const Name = document.getElementById("last");
 const mail = document.getElementById("email");
 const date = document.getElementById("birthdate");
 const competitionNumber = document.getElementById("quantity");
@@ -45,6 +46,46 @@ const location3 = document.getElementById("location3");
 const location4 = document.getElementById("location4");
 const location5 = document.getElementById("location5");
 const location6 = document.getElementById("location6");
+
+//firstName validation
+function firstNameValid(firstName) {
+  if (firstName == "" && firstName.length >= 2) return true;
+  else return false;
+};
+
+//Name validation
+function nameValid(Name) {
+  if (Name == "" && Name.length >= 2) return true;
+  else return false;
+};
+
+//mail validation  https://stackoverflow.com/questions/46155/how-to-validate-an-email-address-in-javascript
+function mailValid(mail) {
+  let mailAttribut = /\S+@\S+\.\S+/;
+  return mailAttribut.test(mail);
+}
+
+// competition number validation
+function competitionNumberValidation(competitionNumber) {
+  let quantityAttribut = /^[0-9]+$/;
+  return quantityAttribut.test(competitionNumber);
+}
+
+
+
+//var message error
+let errorMessages = {
+  firstName: "Veuillez entrer 2 caractères ou plus pour le champ prénom.",
+  lastName: "Veuillez entrer 2 caractères ou plus pour le champ nom.",
+  mail: "Veuillez entrer une adresse email valide.",
+  date: "Veuillez entrer une date de naissance valide.",
+  competitionNumber: "Veuillez entrer un nombre valide.",
+  location: "Veuillez choisir une ville.",
+  checkbox: "Veuillez accepter les conditions d'utilisations.",
+};
+
+
+
 
 
 
