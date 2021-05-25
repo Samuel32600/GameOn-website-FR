@@ -23,70 +23,83 @@ const modalBtn = document.querySelectorAll(".modal-btn");
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 
+const formData = document.querySelectorAll(".formData")
+
 
 //Detail to close form
-//constante to close the form
-const iconCloseForm = document.querySelector("span.close").addEventListener("click", closePopUp)
-//close 
+document.querySelector("span.close").addEventListener("click", closePopUp) // selection de l'element + ecoute de l'évenement
 function closePopUp() {
-  modalbg.style.display = "none";
+  modalbg.style.display = "none"; // fonction pour fermer la fenetre
 }
 
-const formData = document.querySelectorAll(".formData");
-
-
-const firstName = document.getElementById("first");
-const Name = document.getElementById("last");
-const mail = document.getElementById("email");
-const date = document.getElementById("birthdate");
-const competitionNumber = document.getElementById("quantity");
-const location1 = document.getElementById("location1");
-const location2 = document.getElementById("location2");
-const location3 = document.getElementById("location3");
-const location4 = document.getElementById("location4");
-const location5 = document.getElementById("location5");
-const location6 = document.getElementById("location6");
-
-//firstName validation
-function firstNameValid(firstName) {
-  if (firstName == "" && firstName.length >= 2) return true;
-  else return false;
-};
-
-//Name validation
-function nameValid(Name) {
-  if (Name == "" && Name.length >= 2) return true;
-  else return false;
-};
-
-//mail validation  https://stackoverflow.com/questions/46155/how-to-validate-an-email-address-in-javascript
-function mailValid(mail) {
-  let mailAttribut = /\S+@\S+\.\S+/;
-  return mailAttribut.test(mail);
+//first Name
+document.getElementById("first").addEventListener("change", firstNameValidation);
+// check first name
+function firstNameValidation() {
+  let attribut = document.getElementById("first").value;
+  if (attribut !== null && attribut.length > 1) {
+    console.log('le prenom est correct');
+    document.getElementById("first-error").innerText = "";
+  }
+  else {
+    document.getElementById("first-error").innerText = errorMessages.first;
+    console.log('le prenom est incorrect');
+  }
 }
 
-// competition number validation
-function competitionNumberValidation(competitionNumber) {
-  let quantityAttribut = /^[0-9]+$/;
-  return quantityAttribut.test(competitionNumber);
+//Name
+document.getElementById("last").addEventListener("change", lastNameValidation);
+// check last name
+function lastNameValidation() {
+  let attribut = document.getElementById("last").value;
+  if (attribut !== null && attribut.length > 1) {
+    console.log('le nom est correct');
+    document.getElementById("last-error").innerText = "";
+  }
+  else {
+    document.getElementById("last-error").innerText = errorMessages.last;
+    console.log('le nom est incorrect');
+  }
 }
 
+//email
+document.getElementById("email").addEventListener("change", emailValidation);
+// check email
+function emailValidation() {
+  let email = document.getElementById("email").value;
+  let emailAttribut = /^[a-z\d_\-]+(\.[\a-z\d\-]+)*@[a-z\d\-]+(\.[a-z\d]+)+$/;
+  if (emailAttribut.exec(email)) {
+    console.log('le mail est valide');
+    document.getElementById("email-error").innerText = "";
+  }
+  else {
+    document.getElementById("email-error").innerText = errorMessages.email;
+    console.log('le mail est invalide');
+  }
+}
 
+//qunatity number of competition
+document.getElementById("quantity").addEventListener("change", quantityValidation);
+// check quantity
+function quantityValidation() {
+  let attribut = document.getElementById("quantity").value;
+  if (attribut > -1 && attribut < 100) {
+    console.log('la quantité est correcte');
+    document.getElementById("quantity-error").innerText = "";
+  }
+  else {
+    document.getElementById("quantity-error").innerText = errorMessages.quantity;
+    console.log('la quantité est incorrecte');
+  }
+}
 
-//var message error
+//error messages
 let errorMessages = {
-  firstName: "Veuillez entrer 2 caractères ou plus pour le champ prénom.",
-  lastName: "Veuillez entrer 2 caractères ou plus pour le champ nom.",
-  mail: "Veuillez entrer une adresse email valide.",
-  date: "Veuillez entrer une date de naissance valide.",
-  competitionNumber: "Veuillez entrer un nombre valide.",
+  first: "Veuillez entrer 2 caractères ou plus pour le champ prénom.",
+  last: "Veuillez entrer 2 caractères ou plus pour le champ nom.",
+  email: "Veuillez entrer une adresse email valide.",
+  birthdate: "Veuillez entrer une date de naissance valide.",
+  quantity: "Veuillez entrer un nombre valide compris entre 0 et 99",
   location: "Veuillez choisir une ville.",
   checkbox: "Veuillez accepter les conditions d'utilisations.",
-};
-
-
-
-
-
-
-
+}

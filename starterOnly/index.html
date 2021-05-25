@@ -80,30 +80,35 @@
             <div class="formData">
               <label for="first">Prénom</label><br>
               <input type="text" name="first" id="first" class="text-control"/><br>
+              <span id="first-error" style="color:red"></span>              
             </div>
 
             <!--name-->
             <div class="formData">
               <label for="last">Nom</label><br>
               <input type="text" name="last" id="last" class="text-control"/><br>
+              <span id="last-error" style="color:red"></span>
             </div>
 
             <!--mail-->
-            <div class="formData">
+            <div class="formData" >
               <label for="email">E-mail</label><br>
-              <input type="email" name="email" id="email" class="text-control" /><br>
+              <input type="email" name="email" id="email" class="text-control"/><br>
+              <span id="email-error" style="color:red"></span>
             </div>
 
             <!--date of birth-->
             <div class="formData">
               <label for="birthdate">Date de naissance</label><br>
-              <input type="date" name="birthdate" id="birthdate" class="text-control" /><br>
+              <input type="date" name="birthdate" id="birthdate" class="text-control"/><br>
+              <span id="birthdate-error" style="color:red"></span>
             </div>
 
             <!--number competition-->
             <div class="formData">
               <label for="quantity">À combien de tournois GameOn avez-vous déjà participé ?</label><br>
-              <input type="number" name="quantity" id="quantity" class="text-control" min="0" max="99">
+              <input type="number" name="quantity" id="quantity" class="text-control" min="0" max="99"/><br>
+              <span id="quantity-error" style="color:red"></span>
             </div>
 
             <!--city choice-->
@@ -133,6 +138,7 @@
               <label class="checkbox-label" for="location6">
                 <span class="checkbox-icon"></span>
                 Portland</label>
+              <span id="city-error" style="color:red"></span>
             </div>
 
             <!--Condition-->
