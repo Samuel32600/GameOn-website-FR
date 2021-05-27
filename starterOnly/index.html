@@ -74,7 +74,7 @@
         
         <!--box form-->
         <div class="modal-body">
-          <form name="reserve" action="index.html" method="get" onsubmit="return validate();">
+          <form  id="myForm" name="reserve" action="index.html" method="get">
 
             <!--first name-->
             <div class="formData">
@@ -93,7 +93,7 @@
             <!--mail-->
             <div class="formData" >
               <label for="email">E-mail</label><br>
-              <input type="email" name="email" id="email" class="text-control"/><br>
+              <input type="text" name="email" id="email" class="text-control"/><br>
               <span id="email-error" style="color:red"></span>
             </div>
 
@@ -113,7 +113,7 @@
 
             <!--city choice-->
             <p class="text-label">Quelle ville ?</p>
-            <div class="formData">
+            <div class="formData" id="city">
               <input class="checkbox-input" type="radio" id="location1" name="location" value="New York" />
               <label class="checkbox-label" for="location1">
                 <span class="checkbox-icon"></span>
@@ -138,7 +138,7 @@
               <label class="checkbox-label" for="location6">
                 <span class="checkbox-icon"></span>
                 Portland</label>
-              <span id="city-error" style="color:red"></span>
+              <span id="location-error" style="color:red"></span>
             </div>
 
             <!--Condition-->

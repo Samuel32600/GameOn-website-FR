@@ -27,69 +27,128 @@ const formData = document.querySelectorAll(".formData")
 
 
 //Detail to close form
-document.querySelector("span.close").addEventListener("click", closePopUp) // selection de l'element + ecoute de l'évenement
+document.querySelector("span.close").addEventListener("click", closePopUp)
+
 function closePopUp() {
-  modalbg.style.display = "none"; // fonction pour fermer la fenetre
+  modalbg.style.display = "none"
 }
+
 
 //first Name
 document.getElementById("first").addEventListener("change", firstNameValidation);
-// check first name
+
 function firstNameValidation() {
   let attribut = document.getElementById("first").value;
   if (attribut !== null && attribut.length > 1) {
     console.log('le prenom est correct');
     document.getElementById("first-error").innerText = "";
+    return firstNameValidation = true;
   }
   else {
     document.getElementById("first-error").innerText = errorMessages.first;
     console.log('le prenom est incorrect');
+    return firstNameValidation = false;
   }
 }
 
 //Name
 document.getElementById("last").addEventListener("change", lastNameValidation);
-// check last name
+
 function lastNameValidation() {
   let attribut = document.getElementById("last").value;
   if (attribut !== null && attribut.length > 1) {
     console.log('le nom est correct');
     document.getElementById("last-error").innerText = "";
+    return lastNameValidation = true;
   }
   else {
     document.getElementById("last-error").innerText = errorMessages.last;
     console.log('le nom est incorrect');
+    return lastNameValidation = false;
   }
 }
 
 //email
 document.getElementById("email").addEventListener("change", emailValidation);
-// check email
+
 function emailValidation() {
   let email = document.getElementById("email").value;
   let emailAttribut = /^[a-z\d_\-]+(\.[\a-z\d\-]+)*@[a-z\d\-]+(\.[a-z\d]+)+$/;
   if (emailAttribut.exec(email)) {
     console.log('le mail est valide');
     document.getElementById("email-error").innerText = "";
+    return emailValidation = true;
   }
   else {
-    document.getElementById("email-error").innerText = errorMessages.email;
     console.log('le mail est invalide');
+    document.getElementById("email-error").innerText = errorMessages.email;
+    return emailValidation = false;
   }
 }
 
 //qunatity number of competition
 document.getElementById("quantity").addEventListener("change", quantityValidation);
-// check quantity
+
 function quantityValidation() {
   let attribut = document.getElementById("quantity").value;
   if (attribut > -1 && attribut < 100) {
     console.log('la quantité est correcte');
     document.getElementById("quantity-error").innerText = "";
+    return quantityValidation = true;
   }
   else {
     document.getElementById("quantity-error").innerText = errorMessages.quantity;
     console.log('la quantité est incorrecte');
+    return quantityValidation = false;
+  }
+}
+
+// date birthdate
+document.getElementById("birthdate").addEventListener("change", birthdateValidation);
+
+function birthdateValidation() {
+  let dateAttribut = document.getElementById("birthdate").value;
+  if (dateAttribut !== "") {
+    console.log('la date est valide');
+    document.getElementById("birthdate-error").innerText = "";
+    return birthdateValidation = true;
+  }
+  else {
+    console.log('le date est invalide');
+    document.getElementById("birthdate-error").innerText = errorMessages.birthdate;
+    return birthdateValidation = false;
+  }
+}
+
+//city
+document.getElementById("city").addEventListener("change", locationValidation);
+function locationValidation() {
+  let cityChecked = "";
+  if (cityChecked === "New York" || "San Francisco" || "Seattle" || "Chicago" || "Boston" || "Portland"){ 
+    console.log('une ville est bien sectionnée');
+    return locationValidation = true;
+  }
+  else (cityChecked = null); {
+    console.log('false');   
+    return locationValidation = false;    
+  }
+}
+
+
+//validation Form
+document.getElementById("myForm").addEventListener("submit", validation)
+function validation(e) {
+  if (firstNameValidation === true
+    && lastNameValidation === true
+    && emailValidation === true
+    && quantityValidation === true
+    && birthdateValidation === true
+    && locationValidation === true) {
+    console.log('le formulaire est valide');
+  }
+  else {
+    console.log('le formulaire est non valide');
+    e.preventDefault();
   }
 }
 
