@@ -120,18 +120,32 @@ function birthdateValidation() {
   }
 }
 
-//city
+//location
 document.getElementById("city").addEventListener("change", locationValidation);
 function locationValidation() {
-  let cityChecked = "";
-  if (cityChecked === "New York" || "San Francisco" || "Seattle" || "Chicago" || "Boston" || "Portland"){ 
+  let locationChecked = "";
+  if (locationChecked === "New York" || "San Francisco" || "Seattle" || "Chicago" || "Boston" || "Portland"){ 
     console.log('une ville est bien sectionnée');
     return locationValidation = true;
   }
-  else (cityChecked = null); {
-    console.log('false');   
+  else (locationChecked = null); {
+    console.log("veuillez selectionner une ville");   
     return locationValidation = false;    
   }
+}
+
+//condition
+document.getElementById("checkbox1").addEventListener("change", conditionValidation);
+function conditionValidation() {
+  let conditionCheckbox = document.getElementById("checkbox1");
+  if (conditionCheckbox.checked){
+    console.log('les conditions sont bien cochées');
+    return conditionValidation = true;
+  }
+  else (conditionCheckbox = null); {
+    console.log('conditions non cochées');   
+    return conditionValidation = false;    
+  } 
 }
 
 
@@ -141,9 +155,10 @@ function validation(e) {
   if (firstNameValidation === true
     && lastNameValidation === true
     && emailValidation === true
-    && quantityValidation === true
     && birthdateValidation === true
-    && locationValidation === true) {
+    && quantityValidation === true
+    && locationValidation === true
+    && conditionValidation === true) {
     console.log('le formulaire est valide');
   }
   else {

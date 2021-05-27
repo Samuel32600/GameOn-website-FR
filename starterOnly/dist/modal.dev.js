@@ -117,22 +117,39 @@ function birthdateValidation() {
     document.getElementById("birthdate-error").innerText = errorMessages.birthdate;
     return birthdateValidation = false;
   }
-} //city
+} //location
 
 
 document.getElementById("city").addEventListener("change", locationValidation);
 
 function locationValidation() {
-  var cityChecked = "";
+  var locationChecked = "";
 
-  if (cityChecked === "New York" || "San Francisco" || "Seattle" || "Chicago" || "Boston" || "Portland") {
+  if (locationChecked === "New York" || "San Francisco" || "Seattle" || "Chicago" || "Boston" || "Portland") {
     console.log('une ville est bien sectionnée');
     return locationValidation = true;
-  } else cityChecked = null;
+  } else locationChecked = null;
 
   {
-    console.log('false');
+    console.log("veuillez selectionner une ville");
     return locationValidation = false;
+  }
+} //condition
+
+
+document.getElementById("checkbox1").addEventListener("change", conditionValidation);
+
+function conditionValidation() {
+  var conditionCheckbox = document.getElementById("checkbox1");
+
+  if (conditionCheckbox.checked) {
+    console.log('les conditions sont bien cochées');
+    return conditionValidation = true;
+  } else conditionCheckbox = null;
+
+  {
+    console.log('conditions non cochées');
+    return conditionValidation = false;
   }
 } //validation Form
 
@@ -140,7 +157,7 @@ function locationValidation() {
 document.getElementById("myForm").addEventListener("submit", validation);
 
 function validation(e) {
-  if (firstNameValidation === true && lastNameValidation === true && emailValidation === true && quantityValidation === true && birthdateValidation === true && locationValidation === true) {
+  if (firstNameValidation === true && lastNameValidation === true && emailValidation === true && birthdateValidation === true && quantityValidation === true && locationValidation === true && conditionValidation === true) {
     console.log('le formulaire est valide');
   } else {
     console.log('le formulaire est non valide');
