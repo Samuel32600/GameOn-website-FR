@@ -31,137 +31,107 @@ document.querySelector("span.close").addEventListener("click", closePopUp);
 
 function closePopUp() {
   modalbg.style.display = "none";
-} //first Name
-
-
-document.getElementById("first").addEventListener("change", firstNameValidation);
-
-function firstNameValidation() {
-  var attribut = document.getElementById("first").value;
-
-  if (attribut !== null && attribut.length > 1) {
-    console.log('le prenom est correct');
-    document.getElementById("first-error").innerText = "";
-    return firstNameValidation = true;
-  } else {
-    document.getElementById("first-error").innerText = errorMessages.first;
-    console.log('le prenom est incorrect');
-    return firstNameValidation = false;
-  }
-} //Name
-
-
-document.getElementById("last").addEventListener("change", lastNameValidation);
-
-function lastNameValidation() {
-  var attribut = document.getElementById("last").value;
-
-  if (attribut !== null && attribut.length > 1) {
-    console.log('le nom est correct');
-    document.getElementById("last-error").innerText = "";
-    return lastNameValidation = true;
-  } else {
-    document.getElementById("last-error").innerText = errorMessages.last;
-    console.log('le nom est incorrect');
-    return lastNameValidation = false;
-  }
-} //email
-
-
-document.getElementById("email").addEventListener("change", emailValidation);
-
-function emailValidation() {
-  var email = document.getElementById("email").value;
-  var emailAttribut = /^[a-z\d_\-]+(\.[\a-z\d\-]+)*@[a-z\d\-]+(\.[a-z\d]+)+$/;
-
-  if (emailAttribut.exec(email)) {
-    console.log('le mail est valide');
-    document.getElementById("email-error").innerText = "";
-    return emailValidation = true;
-  } else {
-    console.log('le mail est invalide');
-    document.getElementById("email-error").innerText = errorMessages.email;
-    return emailValidation = false;
-  }
-} //qunatity number of competition
-
-
-document.getElementById("quantity").addEventListener("change", quantityValidation);
-
-function quantityValidation() {
-  var attribut = document.getElementById("quantity").value;
-
-  if (attribut > -1 && attribut < 100) {
-    console.log('la quantité est correcte');
-    document.getElementById("quantity-error").innerText = "";
-    return quantityValidation = true;
-  } else {
-    document.getElementById("quantity-error").innerText = errorMessages.quantity;
-    console.log('la quantité est incorrecte');
-    return quantityValidation = false;
-  }
-} // date birthdate
-
-
-document.getElementById("birthdate").addEventListener("change", birthdateValidation);
-
-function birthdateValidation() {
-  var dateAttribut = document.getElementById("birthdate").value;
-
-  if (dateAttribut !== "") {
-    console.log('la date est valide');
-    document.getElementById("birthdate-error").innerText = "";
-    return birthdateValidation = true;
-  } else {
-    console.log('le date est invalide');
-    document.getElementById("birthdate-error").innerText = errorMessages.birthdate;
-    return birthdateValidation = false;
-  }
-} //location
-
-
-document.getElementById("city").addEventListener("change", locationValidation);
-
-function locationValidation() {
-  var locationChecked = "";
-
-  if (locationChecked === "New York" || "San Francisco" || "Seattle" || "Chicago" || "Boston" || "Portland") {
-    console.log('une ville est bien sectionnée');
-    return locationValidation = true;
-  } else locationChecked = null;
-
-  {
-    console.log("veuillez selectionner une ville");
-    return locationValidation = false;
-  }
-} //condition
-
-
-document.getElementById("checkbox1").addEventListener("change", conditionValidation);
-
-function conditionValidation() {
-  var conditionCheckbox = document.getElementById("checkbox1");
-
-  if (conditionCheckbox.checked) {
-    console.log('les conditions sont bien cochées');
-    return conditionValidation = true;
-  } else conditionCheckbox = null;
-
-  {
-    console.log('conditions non cochées');
-    return conditionValidation = false;
-  }
 } //validation Form
 
 
 document.getElementById("myForm").addEventListener("submit", validation);
 
 function validation(e) {
-  if (firstNameValidation === true && lastNameValidation === true && emailValidation === true && birthdateValidation === true && quantityValidation === true && locationValidation === true && conditionValidation === true) {
-    console.log('le formulaire est valide');
+  var form_OK = true; //-----first Name
+
+  var firstName = document.getElementById("first").value;
+
+  if (firstName !== null && firstName.length > 1) {
+    console.log('le prenom est correct');
+    document.getElementById("first-error").innerText = "";
   } else {
-    console.log('le formulaire est non valide');
+    console.log('le prenom est incorrect');
+    document.getElementById("first-error").innerText = errorMessages.first;
+    form_OK = false;
+  } //-----name
+
+
+  var name = document.getElementById("last").value;
+
+  if (name !== null && name.length > 1) {
+    console.log('le nom est correct');
+    document.getElementById("last-error").innerText = "";
+  } else {
+    document.getElementById("last-error").innerText = errorMessages.last;
+    console.log('le nom est incorrect');
+    form_OK = false;
+  } //-----email
+
+
+  var email = document.getElementById("email").value;
+  var emailAttribut = /^[a-z\d_\-]+(\.[\a-z\d\-]+)*@[a-z\d\-]+(\.[a-z\d]+)+$/;
+
+  if (emailAttribut.exec(email)) {
+    console.log('le mail est valide');
+    document.getElementById("email-error").innerText = "";
+  } else {
+    console.log('le mail est invalide');
+    document.getElementById("email-error").innerText = errorMessages.email;
+    form_OK = false;
+  } //-----birthdate
+
+
+  var birthdateAttribut = document.getElementById("birthdate").value;
+
+  if (birthdateAttribut !== "") {
+    console.log('la date est valide');
+    document.getElementById("birthdate-error").innerText = "";
+  } else {
+    console.log('le date est invalide');
+    document.getElementById("birthdate-error").innerText = errorMessages.birthdate;
+    form_OK = false;
+  } //-----quantity
+
+
+  var quantity = document.getElementById("quantity").value;
+
+  if (quantity > -1 && quantity < 100 && quantity != "") {
+    console.log('la quantité est correcte');
+    document.getElementById("quantity-error").innerText = "";
+  } else {
+    document.getElementById("quantity-error").innerText = errorMessages.quantity;
+    console.log('la quantité est incorrecte');
+    form_OK = false;
+  } //-----city
+
+
+  var NewYork = document.getElementById("location1");
+  var SanFrancisco = document.getElementById("location2");
+  var Seattle = document.getElementById("location3");
+  var Chicago = document.getElementById("location4");
+  var Boston = document.getElementById("location5");
+  var Portland = document.getElementById("location6");
+
+  if (NewYork.Checked || SanFrancisco.Checked || Seattle.checked || Chicago.checked || Boston.checked || Portland.checked) {
+    document.getElementById("location-error").innerText = "";
+    console.log('une ville est bien sectionnée');
+  } else {
+    document.getElementById("location-error").innerText = errorMessages.location;
+    console.log('aucune ville de selectionner');
+    form_OK = false;
+  } //-----Condition
+
+
+  var conditionCheckbox = document.getElementById("checkbox1");
+
+  if (conditionCheckbox.checked) {
+    console.log('les conditions sont bien cochées');
+    document.getElementById("condition-error").innerText = "";
+  } else {
+    console.log('les conditions sont  non cochées');
+    document.getElementById("condition-error").innerText = errorMessages.condition;
+    form_OK = false;
+  } //-----form non valide
+
+
+  if (!form_OK) {
     e.preventDefault();
+    console.log('le formulaire est non valide');
   }
 } //error messages
 
@@ -173,5 +143,5 @@ var errorMessages = {
   birthdate: "Veuillez entrer une date de naissance valide.",
   quantity: "Veuillez entrer un nombre valide compris entre 0 et 99",
   location: "Veuillez choisir une ville.",
-  checkbox: "Veuillez accepter les conditions d'utilisations."
+  condition: "Veuillez accepter les conditions d'utilisations."
 };

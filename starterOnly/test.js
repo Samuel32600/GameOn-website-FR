@@ -134,8 +134,6 @@ function locationValidation() {
   }
 }
 
-
-
 //validation Form
 document.getElementById("myForm").addEventListener("submit", validation)
 function validation(e) {

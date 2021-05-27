@@ -33,137 +33,111 @@ function closePopUp() {
   modalbg.style.display = "none"
 }
 
+//validation Form
+document.getElementById("myForm").addEventListener("submit", validation)
+function validation(e) {
 
-//first Name
-document.getElementById("first").addEventListener("change", firstNameValidation);
+  let form_OK = true;
 
-function firstNameValidation() {
-  let attribut = document.getElementById("first").value;
-  if (attribut !== null && attribut.length > 1) {
+  //-----first Name
+  let firstName = document.getElementById("first").value;
+  if (firstName !== null && firstName.length > 1) {
     console.log('le prenom est correct');
     document.getElementById("first-error").innerText = "";
-    return firstNameValidation = true;
+
   }
   else {
-    document.getElementById("first-error").innerText = errorMessages.first;
     console.log('le prenom est incorrect');
-    return firstNameValidation = false;
+    document.getElementById("first-error").innerText = errorMessages.first;
+    form_OK = false;
   }
-}
 
-//Name
-document.getElementById("last").addEventListener("change", lastNameValidation);
-
-function lastNameValidation() {
-  let attribut = document.getElementById("last").value;
-  if (attribut !== null && attribut.length > 1) {
+  //-----name
+  let name = document.getElementById("last").value;
+  if (name !== null && name.length > 1) {
     console.log('le nom est correct');
     document.getElementById("last-error").innerText = "";
-    return lastNameValidation = true;
+
   }
   else {
     document.getElementById("last-error").innerText = errorMessages.last;
     console.log('le nom est incorrect');
-    return lastNameValidation = false;
+    form_OK = false;
   }
-}
 
-//email
-document.getElementById("email").addEventListener("change", emailValidation);
-
-function emailValidation() {
+  //-----email
   let email = document.getElementById("email").value;
   let emailAttribut = /^[a-z\d_\-]+(\.[\a-z\d\-]+)*@[a-z\d\-]+(\.[a-z\d]+)+$/;
   if (emailAttribut.exec(email)) {
     console.log('le mail est valide');
     document.getElementById("email-error").innerText = "";
-    return emailValidation = true;
+
   }
   else {
     console.log('le mail est invalide');
     document.getElementById("email-error").innerText = errorMessages.email;
-    return emailValidation = false;
+    form_OK = false;
   }
-}
 
-//qunatity number of competition
-document.getElementById("quantity").addEventListener("change", quantityValidation);
-
-function quantityValidation() {
-  let attribut = document.getElementById("quantity").value;
-  if (attribut > -1 && attribut < 100) {
-    console.log('la quantité est correcte');
-    document.getElementById("quantity-error").innerText = "";
-    return quantityValidation = true;
-  }
-  else {
-    document.getElementById("quantity-error").innerText = errorMessages.quantity;
-    console.log('la quantité est incorrecte');
-    return quantityValidation = false;
-  }
-}
-
-// date birthdate
-document.getElementById("birthdate").addEventListener("change", birthdateValidation);
-
-function birthdateValidation() {
-  let dateAttribut = document.getElementById("birthdate").value;
-  if (dateAttribut !== "") {
+  //-----birthdate
+  let birthdateAttribut = document.getElementById("birthdate").value;
+  if (birthdateAttribut !== "") {
     console.log('la date est valide');
     document.getElementById("birthdate-error").innerText = "";
-    return birthdateValidation = true;
+
   }
   else {
     console.log('le date est invalide');
     document.getElementById("birthdate-error").innerText = errorMessages.birthdate;
-    return birthdateValidation = false;
+    form_OK = false;
   }
-}
 
-//location
-document.getElementById("city").addEventListener("change", locationValidation);
-function locationValidation() {
-  let locationChecked = "";
-  if (locationChecked === "New York" || "San Francisco" || "Seattle" || "Chicago" || "Boston" || "Portland"){ 
-    console.log('une ville est bien sectionnée');
-    return locationValidation = true;
-  }
-  else (locationChecked = null); {
-    console.log("veuillez selectionner une ville");   
-    return locationValidation = false;    
-  }
-}
+  //-----quantity
+  let quantity = document.getElementById("quantity").value;
+  if (quantity > -1 && quantity < 100 && quantity != "") {
+    console.log('la quantité est correcte');
+    document.getElementById("quantity-error").innerText = "";
 
-//condition
-document.getElementById("checkbox1").addEventListener("change", conditionValidation);
-function conditionValidation() {
-  let conditionCheckbox = document.getElementById("checkbox1");
-  if (conditionCheckbox.checked){
-    console.log('les conditions sont bien cochées');
-    return conditionValidation = true;
-  }
-  else (conditionCheckbox = null); {
-    console.log('conditions non cochées');   
-    return conditionValidation = false;    
-  } 
-}
-
-
-//validation Form
-document.getElementById("myForm").addEventListener("submit", validation)
-function validation(e) {
-  if (firstNameValidation === true
-    && lastNameValidation === true
-    && emailValidation === true
-    && birthdateValidation === true
-    && quantityValidation === true
-    && locationValidation === true
-    && conditionValidation === true) {
-    console.log('le formulaire est valide');
   }
   else {
-    console.log('le formulaire est non valide');
+    document.getElementById("quantity-error").innerText = errorMessages.quantity;
+    console.log('la quantité est incorrecte');
+    form_OK = false;
+  }
+
+  //-----city
+  let NewYork = document.getElementById("location1");
+  let SanFrancisco = document.getElementById("location2");
+  let Seattle = document.getElementById("location3");
+  let Chicago = document.getElementById("location4");
+  let Boston = document.getElementById("location5");
+  let Portland = document.getElementById("location6");
+  if (NewYork.Checked || SanFrancisco.Checked || Seattle.checked || Chicago.checked || Boston.checked || Portland.checked) {
+    document.getElementById("location-error").innerText = "";
+    console.log('une ville est bien sectionnée');    
+  }
+  else {
+    document.getElementById("location-error").innerText = errorMessages.location;
+    console.log('aucune ville de selectionner');
+    form_OK = false;    
+  }
+
+  //-----Condition
+  let conditionCheckbox = document.getElementById("checkbox1");
+  if (conditionCheckbox.checked) {
+    console.log('les conditions sont bien cochées');
+    document.getElementById("condition-error").innerText = "";
+  }
+  else {
+    console.log('les conditions sont  non cochées');
+    document.getElementById("condition-error").innerText = errorMessages.condition;
+    form_OK = false;
+  }
+
+  //-----form non valide
+  if (!form_OK) {
     e.preventDefault();
+    console.log('le formulaire est non valide');
   }
 }
 
@@ -175,5 +149,5 @@ let errorMessages = {
   birthdate: "Veuillez entrer une date de naissance valide.",
   quantity: "Veuillez entrer un nombre valide compris entre 0 et 99",
   location: "Veuillez choisir une ville.",
-  checkbox: "Veuillez accepter les conditions d'utilisations.",
+  condition: "Veuillez accepter les conditions d'utilisations.",
 }
