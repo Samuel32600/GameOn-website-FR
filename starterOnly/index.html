@@ -80,7 +80,6 @@
             <div class="formData">
               <label for="first">Prénom</label><br>
               <input type="text" name="first" id="first" class="text-control"/><br>
-
               <span id="first-error"></span>              
             </div>
 
@@ -88,32 +87,28 @@
             <div class="formData">
               <label for="last">Nom</label><br>
               <input type="text" name="last" id="last" class="text-control"/><br>
-
-              <span id="last-error" style="color:red"></span>
+              <span id="last-error" ></span>
             </div>
 
             <!--mail-->
             <div class="formData" >
               <label for="email">E-mail</label><br>
               <input type="text" name="email" id="email" class="text-control"/><br>
-
-              <span id="email-error" style="color:red"></span>
+              <span id="email-error" ></span>
             </div>
 
             <!--date of birth-->
             <div class="formData">
               <label for="birthdate">Date de naissance</label><br>
               <input type="date" name="birthdate" id="birthdate" class="text-control"/><br>
-
-              <span id="birthdate-error" style="color:red"></span>
+              <span id="birthdate-error" ></span>
             </div>
 
             <!--number competition-->
             <div class="formData">
               <label for="quantity">À combien de tournois GameOn avez-vous déjà participé ?</label><br>
               <input type="number" name="quantity" id="quantity" class="text-control" min="0" max="99"/><br>
-
-              <span id="quantity-error" style="color:red"></span>
+              <span id="quantity-error" ></span>
             </div>
 
             <!--city choice-->
@@ -150,7 +145,7 @@
                 <span class="checkbox-icon"></span>
                 Portland</label>
 
-              <span id="location-error" style="color:red"></span>
+              <span id="location-error" ></span>
             </div>
 
             <!--Condition-->
@@ -170,7 +165,7 @@
               </label>
               <br>
 
-              <span id="condition-error" style="color:red"></span>
+              <span id="condition-error" ></span>
             </div>
 
             <!--button-->
@@ -179,6 +174,10 @@
           </form>
         </div>
       </div>
+    </div>
+    <div class="form-endvalidation">
+      <span class="text-validation">Merci! Nous avons bien pris en compte votre inscription sur GameOn</span>      
+      <button class="btn-close">Fermer</button>
     </div>
   </main>
 

@@ -507,6 +507,31 @@ footer {
 }
 
 
+.form-endvalidation{
+  display: none;
+  position:fixed;
+  top: 5%;
+  left:50%;
+  animation-name: modalopen;
+  animation-duration: var(--modal-duration);
+  background: #232323;
+  border-radius: 10px;
+  overflow: hidden;
+  z-index: 1;
+  width:46vh;
+  margin-left: -23vh;
+  padding: 5px 5px 10px 5px;
+}
+.text-validation{
+  display: block;
+  font-size: 1rem;
+  color: #fff;
+  font-weight: 100;
+  text-align: center;
+  margin-top: 5px;
+}
+
+
 
 /*media queries*/
 @media screen and (max-width: 768px) {
