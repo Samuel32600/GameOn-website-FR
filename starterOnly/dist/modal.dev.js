@@ -40,62 +40,77 @@ function validation(e) {
   var form_OK = true; //-----first Name
 
   var firstName = document.getElementById("first").value;
+  var firstError = document.getElementById("first-error");
 
   if (firstName !== null && firstName.length > 1) {
     console.log('le prenom est correct');
-    document.getElementById("first-error").innerText = "";
+    firstError.innerText = "";
+    firstError.parentNode.removeAttribute("data-error-visible");
   } else {
     console.log('le prenom est incorrect');
-    document.getElementById("first-error").innerText = errorMessages.first;
+    firstError.parentNode.setAttribute("data-error", errorMessages.first);
+    firstError.parentNode.setAttribute("data-error-visible", "true");
     form_OK = false;
   } //-----name
 
 
   var name = document.getElementById("last").value;
+  var nameError = document.getElementById("last-error");
 
   if (name !== null && name.length > 1) {
     console.log('le nom est correct');
-    document.getElementById("last-error").innerText = "";
+    nameError.innerText = "";
+    nameError.parentNode.removeAttribute("data-error-visible");
   } else {
-    document.getElementById("last-error").innerText = errorMessages.last;
     console.log('le nom est incorrect');
+    nameError.parentNode.setAttribute("data-error", errorMessages.last);
+    nameError.parentNode.setAttribute("data-error-visible", "true");
     form_OK = false;
   } //-----email
 
 
   var email = document.getElementById("email").value;
   var emailAttribut = /^[a-z\d_\-]+(\.[\a-z\d\-]+)*@[a-z\d\-]+(\.[a-z\d]+)+$/;
+  var emailError = document.getElementById("email-error");
 
   if (emailAttribut.exec(email)) {
     console.log('le mail est valide');
-    document.getElementById("email-error").innerText = "";
+    emailError.innerText = "";
+    emailError.parentNode.removeAttribute("data-error-visible");
   } else {
     console.log('le mail est invalide');
-    document.getElementById("email-error").innerText = errorMessages.email;
+    emailError.parentNode.setAttribute("data-error", errorMessages.email);
+    emailError.parentNode.setAttribute("data-error-visible", "true");
     form_OK = false;
   } //-----birthdate
 
 
   var birthdateAttribut = document.getElementById("birthdate").value;
+  var birthdateError = document.getElementById("birthdate-error");
 
   if (birthdateAttribut !== "") {
     console.log('la date est valide');
-    document.getElementById("birthdate-error").innerText = "";
+    birthdateError.innerText = "";
+    birthdateError.parentNode.removeAttribute("data-error-visible");
   } else {
     console.log('le date est invalide');
-    document.getElementById("birthdate-error").innerText = errorMessages.birthdate;
+    birthdateError.parentNode.setAttribute("data-error", errorMessages.birthdate);
+    birthdateError.parentNode.setAttribute("data-error-visible", "true");
     form_OK = false;
   } //-----quantity
 
 
   var quantity = document.getElementById("quantity").value;
+  var quantityError = document.getElementById("quantity-error");
 
   if (quantity > -1 && quantity < 100 && quantity != "") {
     console.log('la quantité est correcte');
-    document.getElementById("quantity-error").innerText = "";
+    quantityError.innerText = "";
+    quantityError.parentNode.removeAttribute("data-error-visible");
   } else {
-    document.getElementById("quantity-error").innerText = errorMessages.quantity;
     console.log('la quantité est incorrecte');
+    quantityError.parentNode.setAttribute("data-error", errorMessages.quantity);
+    quantityError.parentNode.setAttribute("data-error-visible", "true");
     form_OK = false;
   } //-----city
 
@@ -106,25 +121,30 @@ function validation(e) {
   var Chicago = document.getElementById("location4");
   var Boston = document.getElementById("location5");
   var Portland = document.getElementById("location6");
+  var cityError = document.getElementById("location-error");
 
   if (NewYork.checked || SanFrancisco.checked || Seattle.checked || Chicago.checked || Boston.checked || Portland.checked) {
-    document.getElementById("location-error").innerText = "";
     console.log('une ville est bien sectionnée');
+    cityError.innerText = "";
+    cityError.parentNode.removeAttribute("data-error-visible");
   } else {
-    document.getElementById("location-error").innerText = errorMessages.location;
     console.log('aucune ville de selectionner');
+    cityError.parentNode.setAttribute("data-error", errorMessages.location);
+    cityError.parentNode.setAttribute("data-error-visible", "true");
     form_OK = false;
   } //-----Condition
 
 
   var conditionCheckbox = document.getElementById("checkbox1");
+  var conditionError = document.getElementById("condition-error");
 
   if (conditionCheckbox.checked) {
     console.log('les conditions sont bien cochées');
-    document.getElementById("condition-error").innerText = "";
+    conditionError.innerText = "";
   } else {
     console.log('les conditions sont  non cochées');
-    document.getElementById("condition-error").innerText = errorMessages.condition;
+    conditionError.parentNode.setAttribute("data-error", errorMessages.condition);
+    conditionError.parentNode.setAttribute("data-error-visible", "true");
     form_OK = false;
   } //-----form non valide
 

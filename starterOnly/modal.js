@@ -41,96 +41,118 @@ function validation(e) {
 
   //-----first Name
   let firstName = document.getElementById("first").value;
+  const firstError = document.getElementById("first-error");
+
   if (firstName !== null && firstName.length > 1) {
     console.log('le prenom est correct');
-    document.getElementById("first-error").innerText = "";
-
+    firstError.innerText = ""; 
+    firstError.parentNode.removeAttribute("data-error-visible");
   }
   else {
-    console.log('le prenom est incorrect');
-    document.getElementById("first-error").innerText = errorMessages.first;
+    console.log('le prenom est incorrect');    
+    firstError.parentNode.setAttribute("data-error", errorMessages.first);
+    firstError.parentNode.setAttribute("data-error-visible", "true");
     form_OK = false;
   }
 
   //-----name
   let name = document.getElementById("last").value;
+  const nameError = document.getElementById("last-error");
+
   if (name !== null && name.length > 1) {
     console.log('le nom est correct');
-    document.getElementById("last-error").innerText = "";
+    nameError.innerText = "";
+    nameError.parentNode.removeAttribute("data-error-visible");
 
   }
   else {
-    document.getElementById("last-error").innerText = errorMessages.last;
     console.log('le nom est incorrect');
+    nameError.parentNode.setAttribute("data-error", errorMessages.last);
+    nameError.parentNode.setAttribute("data-error-visible", "true");
     form_OK = false;
   }
 
   //-----email
   let email = document.getElementById("email").value;
   let emailAttribut = /^[a-z\d_\-]+(\.[\a-z\d\-]+)*@[a-z\d\-]+(\.[a-z\d]+)+$/;
+  const emailError = document.getElementById("email-error");
+
   if (emailAttribut.exec(email)) {
     console.log('le mail est valide');
-    document.getElementById("email-error").innerText = "";
-
+    emailError.innerText = "";
+    emailError.parentNode.removeAttribute("data-error-visible"); 
   }
   else {
     console.log('le mail est invalide');
-    document.getElementById("email-error").innerText = errorMessages.email;
+    emailError.parentNode.setAttribute("data-error", errorMessages.email);
+    emailError.parentNode.setAttribute("data-error-visible", "true");
     form_OK = false;
   }
 
   //-----birthdate
   let birthdateAttribut = document.getElementById("birthdate").value;
+  const birthdateError = document.getElementById("birthdate-error");
+
   if (birthdateAttribut !== "") {
     console.log('la date est valide');
-    document.getElementById("birthdate-error").innerText = "";
-
+    birthdateError.innerText = "";
+    birthdateError.parentNode.removeAttribute("data-error-visible");
   }
   else {
     console.log('le date est invalide');
-    document.getElementById("birthdate-error").innerText = errorMessages.birthdate;
+    birthdateError.parentNode.setAttribute("data-error", errorMessages.birthdate);
+    birthdateError.parentNode.setAttribute("data-error-visible", "true");
     form_OK = false;
   }
 
   //-----quantity
   let quantity = document.getElementById("quantity").value;
+  const quantityError = document.getElementById("quantity-error");
+
   if (quantity > -1 && quantity < 100 && quantity != "") {
     console.log('la quantité est correcte');
-    document.getElementById("quantity-error").innerText = "";
-
+    quantityError.innerText = "";
+    quantityError.parentNode.removeAttribute("data-error-visible");
   }
   else {
-    document.getElementById("quantity-error").innerText = errorMessages.quantity;
     console.log('la quantité est incorrecte');
+    quantityError.parentNode.setAttribute("data-error", errorMessages.quantity);
+    quantityError.parentNode.setAttribute("data-error-visible", "true");
     form_OK = false;
   }
 
   //-----city
   let NewYork = document.getElementById("location1");
-  let SanFrancisco= document.getElementById("location2");
+  let SanFrancisco = document.getElementById("location2");
   let Seattle = document.getElementById("location3");
   let Chicago = document.getElementById("location4");
   let Boston = document.getElementById("location5");
   let Portland = document.getElementById("location6");
+  const cityError = document.getElementById("location-error");
+
   if (NewYork.checked || SanFrancisco.checked || Seattle.checked || Chicago.checked || Boston.checked || Portland.checked) {
-    document.getElementById("location-error").innerText = "";
-    console.log('une ville est bien sectionnée');    
+    console.log('une ville est bien sectionnée');
+    cityError.innerText = "";
+    cityError.parentNode.removeAttribute("data-error-visible");
   }
   else {
-    document.getElementById("location-error").innerText = errorMessages.location;
     console.log('aucune ville de selectionner');
-    form_OK = false;    
+    cityError.parentNode.setAttribute("data-error", errorMessages.location);
+    cityError.parentNode.setAttribute("data-error-visible", "true");
+    form_OK = false;
   }
 
   //-----Condition
   let conditionCheckbox = document.getElementById("checkbox1");
+  const conditionError = document.getElementById("condition-error")
   if (conditionCheckbox.checked) {
     console.log('les conditions sont bien cochées');
-    document.getElementById("condition-error").innerText = "";
+    conditionError.innerText = "";    
   }
   else {
-    console.log('les conditions sont  non cochées');
-    document.getElementById("condition-error").innerText = errorMessages.condition;
+    console.log('les conditions sont  non cochées');    
+    conditionError.parentNode.setAttribute("data-error", errorMessages.condition);
+    conditionError.parentNode.setAttribute("data-error-visible", "true");
     form_OK = false;
   }
 
@@ -151,3 +173,4 @@ let errorMessages = {
   location: "Veuillez choisir une ville.",
   condition: "Veuillez accepter les conditions d'utilisations.",
 }
+
