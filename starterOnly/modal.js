@@ -147,7 +147,8 @@ function validation(e) {
   const conditionError = document.getElementById("condition-error")
   if (conditionCheckbox.checked) {
     console.log('les conditions sont bien cochées');
-    conditionError.innerText = "";    
+    conditionError.innerText = "";
+    conditionError.parentNode.removeAttribute("data-error-visible");    
   }
   else {
     console.log('les conditions sont  non cochées');    

@@ -141,6 +141,7 @@ function validation(e) {
   if (conditionCheckbox.checked) {
     console.log('les conditions sont bien cochées');
     conditionError.innerText = "";
+    conditionError.parentNode.removeAttribute("data-error-visible");
   } else {
     console.log('les conditions sont  non cochées');
     conditionError.parentNode.setAttribute("data-error", errorMessages.condition);
