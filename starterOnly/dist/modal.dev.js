@@ -107,7 +107,7 @@ function validation(e) {
   var Boston = document.getElementById("location5");
   var Portland = document.getElementById("location6");
 
-  if (NewYork.Checked || SanFrancisco.Checked || Seattle.checked || Chicago.checked || Boston.checked || Portland.checked) {
+  if (NewYork.checked || SanFrancisco.checked || Seattle.checked || Chicago.checked || Boston.checked || Portland.checked) {
     document.getElementById("location-error").innerText = "";
     console.log('une ville est bien sectionnée');
   } else {

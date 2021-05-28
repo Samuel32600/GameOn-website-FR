@@ -107,12 +107,12 @@ function validation(e) {
 
   //-----city
   let NewYork = document.getElementById("location1");
-  let SanFrancisco = document.getElementById("location2");
+  let SanFrancisco= document.getElementById("location2");
   let Seattle = document.getElementById("location3");
   let Chicago = document.getElementById("location4");
   let Boston = document.getElementById("location5");
   let Portland = document.getElementById("location6");
-  if (NewYork.Checked || SanFrancisco.Checked || Seattle.checked || Chicago.checked || Boston.checked || Portland.checked) {
+  if (NewYork.checked || SanFrancisco.checked || Seattle.checked || Chicago.checked || Boston.checked || Portland.checked) {
     document.getElementById("location-error").innerText = "";
     console.log('une ville est bien sectionnée');    
   }
