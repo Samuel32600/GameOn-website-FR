@@ -159,7 +159,6 @@ function validation(e) {
 
   if (form_OK) {
     console.log('le formulaire est valide');
-    validation = true;
   } //-----form non valide
   else {
       e.preventDefault();
@@ -176,14 +175,21 @@ var errorMessages = {
   quantity: "Veuillez entrer un nombre valide compris entre 0 et 99",
   location: "Veuillez choisir une ville.",
   condition: "Veuillez accepter les conditions d'utilisations."
-}; //details to open the form
+}; //details to open the formEnd
 // constante for the form
 
 var popUpFinal = document.querySelector(".form-endvalidation");
 document.querySelector('.btn-submit').addEventListener("click", PopUpValidation); // launch modal form
 
 function PopUpValidation() {
-  if (validation === true) {
+  if (validation = true) {
     popUpFinal.style.display = "block";
   }
+} //Detail to close formEnd
+
+
+document.querySelector("span.close").addEventListener("click", closePopUpEnd);
+
+function closePopUpEnd() {
+  popUpFinal.style.display = "none";
 }

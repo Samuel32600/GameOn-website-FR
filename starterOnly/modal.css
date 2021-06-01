@@ -329,7 +329,8 @@ input[data-error]::after {
 }
 
 .btn-submit,
-.btn-signup {
+.btn-signup,
+.btn-close {
   background: #fe142f;
   display: block;
   margin: 0 auto;
@@ -509,29 +510,25 @@ footer {
 
 .form-endvalidation{
   display: none;
-  position:fixed;
-  top: 5%;
-  left:50%;
-  animation-name: modalopen;
-  animation-duration: var(--modal-duration);
-  background: #232323;
-  border-radius: 10px;
-  overflow: hidden;
+  position: fixed;
   z-index: 1;
-  width:46vh;
-  margin-left: -23vh;
-  padding: 5px 5px 10px 5px;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background-color: rgba(26, 39, 156, 0.4);
 }
+
 .text-validation{
   display: block;
   font-size: 1rem;
   color: #fff;
   font-weight: 100;
   text-align: center;
-  margin-top: 5px;
+  margin-top: 50px;
+  margin-bottom: 20px;
 }
-
-
 
 /*media queries*/
 @media screen and (max-width: 768px) {

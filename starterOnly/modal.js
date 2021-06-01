@@ -23,6 +23,7 @@ const modalBtn = document.querySelectorAll(".modal-btn");
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 
+
 const formData = document.querySelectorAll(".formData")
 
 
@@ -167,7 +168,6 @@ function validation(e) {
   //-----form valide
   if (form_OK) {
     console.log('le formulaire est valide');
-    validation = true;
   }
 
   //-----form non valide
@@ -188,15 +188,22 @@ let errorMessages = {
   condition: "Veuillez accepter les conditions d'utilisations.",
 }
 
-//details to open the form
+//details to open the formEnd
 // constante for the form
 const popUpFinal = document.querySelector(".form-endvalidation");
+
 document.querySelector('.btn-submit').addEventListener("click", PopUpValidation);
 // launch modal form
 function PopUpValidation() {
-  if (validation === true) {
+  
+  if (validation = true) {
     popUpFinal.style.display = "block";
   }
 }
 
+//Detail to close formEnd
+document.querySelector("span.close").addEventListener("click", closePopUpEnd)
 
+function closePopUpEnd() {
+  popUpFinal.style.display = "none";
+}
