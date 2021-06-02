@@ -36,7 +36,7 @@ function closePopUp() {
 
 document.getElementById("myForm").addEventListener("submit", validation);
 
-function validation(e) {
+function validation() {
   var form_OK = true; //-----first Name-----
 
   var firstName = document.getElementById("first").value;
@@ -161,7 +161,6 @@ function validation(e) {
     console.log('le formulaire est valide');
   } //-----form non valide
   else {
-      e.preventDefault();
       console.log('le formulaire est non valide');
       return false;
     }
@@ -189,12 +188,15 @@ function PopUpValidation(e) {
 
   if (validation()) {
     popUpFinal.style.display = "block";
+    modalbg.style.display = "none";
   }
 } //Detail to close formEnd
 
 
-document.querySelector("span.close").addEventListener("click", closePopUpEnd);
+document.getElementById("closepopUp").addEventListener("click", closePopUpEnd);
+document.getElementById("Btn-Fermer").addEventListener("click", closePopUpEnd);
 
 function closePopUpEnd() {
   popUpFinal.style.display = "none";
+  document.getElementById("myForm").reset();
 }

@@ -76,8 +76,6 @@ img {
   display: none;
 }
 
-
-
 main {
   font-size: 130%;
   font-weight: bolder;
@@ -130,6 +128,7 @@ main {
 .smFont {
   font-size: 16px;
 }
+
 /*--form in background--*/
 .bground {
   display: none;
@@ -329,8 +328,7 @@ input[data-error]::after {
 }
 
 .btn-submit,
-.btn-signup,
-.btn-close {
+.btn-signup {
   background: #fe142f;
   display: block;
   margin: 0 auto;
@@ -508,7 +506,7 @@ footer {
 }
 
 
-.form-endvalidation{
+.form-endvalidation {
   display: none;
   position: fixed;
   z-index: 1;
@@ -520,7 +518,7 @@ footer {
   background-color: rgba(26, 39, 156, 0.4);
 }
 
-.text-validation{
+.text-validation {
   display: block;
   font-size: 1rem;
   color: #fff;
@@ -528,6 +526,18 @@ footer {
   text-align: center;
   margin-top: 50px;
   margin-bottom: 20px;
+}
+
+.btn-close {
+  background: #fe142f;
+  display: block;
+  margin: 50px auto;
+  border-radius: 7px;
+  font-size: 1rem;
+  padding: 12px 82px;
+  color: #fff;
+  cursor: pointer;
+  border: 0;
 }
 
 /*media queries*/
@@ -619,4 +629,3 @@ footer {
     text-align: center;
   }
 }
-
