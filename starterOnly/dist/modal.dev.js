@@ -163,7 +163,10 @@ function validation(e) {
   else {
       e.preventDefault();
       console.log('le formulaire est non valide');
+      return false;
     }
+
+  return true;
 } //error messages
 
 
@@ -181,8 +184,10 @@ var errorMessages = {
 var popUpFinal = document.querySelector(".form-endvalidation");
 document.querySelector('.btn-submit').addEventListener("click", PopUpValidation); // launch modal form
 
-function PopUpValidation() {
-  if (validation = true) {
+function PopUpValidation(e) {
+  e.preventDefault();
+
+  if (validation()) {
     popUpFinal.style.display = "block";
   }
 } //Detail to close formEnd
