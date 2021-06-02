@@ -198,6 +198,7 @@ function PopUpValidation(e) {
   if (validation()) {
     popUpFinal.style.display = "block";
     modalbg.style.display = "none";
+    console.log("la fenetre popUp s'affiche")
   }
 }
 
@@ -208,6 +209,7 @@ document.getElementById("Btn-Fermer").addEventListener("click", closePopUpEnd)
 function closePopUpEnd() {
   popUpFinal.style.display = "none";
   document.getElementById("myForm").reset();
+  console.log("la fenetre popUp se ferme et le formulaire est reset")
 }
 
 
