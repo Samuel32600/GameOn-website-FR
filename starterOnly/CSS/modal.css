@@ -573,7 +573,7 @@ footer {
   }
 
   .topnav a.icon {
-    margin-top: -15px;
+    margin-top: 5px;
   }
 }
 
@@ -636,12 +636,13 @@ footer {
 
   img {
     height: 20px;
+    margin-top: 20px;
   }
 
   .topnav {
     margin-bottom: 0;
     overflow: unset;
-    margin-top: 5%;
+    
   }
 
   .content {
