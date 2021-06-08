@@ -641,13 +641,13 @@ footer {
 
   .topnav {
     margin-bottom: 0;
-    overflow: unset;
-    
+    margin-top: 2%;
+    overflow: unset;    
   }
 
   .content {
     height: 120%;
-    margin: 3rem 0 0 0;
+    margin: 4rem 0 0 0;
   }
 
   label {
