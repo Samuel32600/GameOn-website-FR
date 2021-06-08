@@ -557,7 +557,6 @@ footer {
   }
 }
 
-
 @media screen and (max-width: 540px) {
   .topnav a {
     display: none;
@@ -626,8 +625,6 @@ footer {
     text-align: center;
   }
 
-  /* rajout*/
-
   main {
     margin: 1px 5px 15px;
     text-align: left;
@@ -675,7 +672,6 @@ footer {
   .text-validation {
     margin: 200px 40px 230px 40px;
   }
-
 }
 
 /*anination for apparition of form*/

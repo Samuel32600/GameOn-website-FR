@@ -17,15 +17,12 @@ function launchModal() {
   modalbg.style.display = "block";
 }
 
-
 //constante for button register
 const modalBtn = document.querySelectorAll(".modal-btn");
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 
-
 const formData = document.querySelectorAll(".formData")
-
 
 //Detail to close form
 document.querySelector("span.close").addEventListener("click", closePopUp)
@@ -33,6 +30,7 @@ document.querySelector("span.close").addEventListener("click", closePopUp)
 function closePopUp() {
   modalbg.style.display = "none"
 }
+
 //validation Form
 document.getElementById("myForm").addEventListener("submit", validation)
 function validation() {
@@ -133,7 +131,7 @@ function validation() {
   let Boston = document.getElementById("location5");
   let Portland = document.getElementById("location6");
   const cityError = document.getElementById("location-error");
-  // Location Valid
+    // Location Valid
   if (NewYork.checked || SanFrancisco.checked || Seattle.checked || Chicago.checked || Boston.checked || Portland.checked) {
     console.log('une ville est bien sectionnée');
     cityError.innerText = "";
@@ -211,5 +209,3 @@ function closePopUpEnd() {
   document.getElementById("myForm").reset();
   console.log("la fenetre popUp se ferme et le formulaire est reset")
 }
-
-
